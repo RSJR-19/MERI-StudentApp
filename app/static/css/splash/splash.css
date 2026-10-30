@@ -1,0 +1,36 @@
+#container{
+    height: 100dvh;
+    width: 100%;
+    max-width: 500px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+#container h1{
+    color: var(--tertiary);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 6rem;
+}
+
+.spinner{
+    height: 5%;
+    aspect-ratio: 1/1;
+    border: 10px solid var(--tertiary);
+    border-radius: 50%;
+    border-top-color: var(--primary);
+    animation: spin infinite ease-in-out 1s;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    } 
+}
