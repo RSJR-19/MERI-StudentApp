@@ -1,0 +1,140 @@
+#container{
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+    max-height: 850px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: var(--tertiary);
+    border-radius: 15px;
+    padding: 0%;
+}
+
+.logo-container{
+    height: 10%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container span{
+    font-size: 6rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    color: var(--primary);
+
+}
+
+.title{
+    color: var(--primary);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 6rem;
+    padding: 0;
+    display: inline-block;
+}
+
+#signupForm{
+    background-color: var(--primary);
+    height: 60%;
+    width: 80%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.name-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.name-input-container{
+    width: 48%;
+    color: var(--tertiary);
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.name-input-container input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--tertiary);
+    font-weight: 500;
+}
+
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 5px;
+    color: var(--tertiary);
+}
+
+.forgot-password{
+    width: 100%;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.input-container input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--tertiary);
+    font-weight: 500;
+    
+}
+
+.signup-h1{
+    font-weight: 900;
+    color: var(--tertiary);
+}
+
+.p-container{
+    display: flex;
+    gap: 5px;
+}
+
+.p-container p:nth-child(2){
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.check-box{
+    width: 90%;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--tertiary);
+}
+
+.check-box input{
+    transform: scale(1.5);
+}
+
+
+.check-box p{
+    font-size: 0.9rem;
+}
+
+.login-button{
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--secondary);
+    background-color: var(--secondary);
+    font-weight: bold;
+    color: var(--tertiary);
+}
