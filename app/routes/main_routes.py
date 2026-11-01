@@ -11,19 +11,13 @@ def index():
 
 @main.route("/splash/<destination>")
 def splash(destination):
-
     if destination not in ["login", "signup"]:
         return redirect(url_for("main.splash", destination="login"))
-
 
     if "user_id" in session:
         return redirect(url_for("main.dashboard"))
 
-
-    return render_template(
-        "splash/splash.html",
-        destination=destination
-    )
+    return render_template( "splash/splash.html", destination=destination)
 
 @main.route("/dashboard")
 def dashboard():

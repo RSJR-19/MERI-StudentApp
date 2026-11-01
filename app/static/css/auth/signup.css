@@ -107,9 +107,10 @@
     gap: 5px;
 }
 
-.p-container p:nth-child(2){
+.control-link{
     color: var(--primary);
     font-weight: 600;
+    text-decoration: none;
 }
 
 .check-box{
@@ -137,4 +138,12 @@
     background-color: var(--secondary);
     font-weight: bold;
     color: var(--tertiary);
+}
+
+.error-message {
+    color: var(--tertiary);
+    font-size: 0.85rem;
+    text-align: center;
+    font-weight: 600;
+    width: 90%;
 }

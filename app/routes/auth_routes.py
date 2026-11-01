@@ -64,16 +64,19 @@ def signup():
         success, message = register_user(first_name, last_name, email, password)
 
         if success:
-            flash(message)
+            success, user = authenticate_user(email, password)
 
-            return redirect(url_for("main.splash", destination="login"))
+        if success:
+            session.clear()
+            session["user_id"] = user["id"]
+            session["first_name"] = user["first_name"]
 
+            return redirect(url_for("main.dashboard"))
 
         flash(message)
 
         return redirect(url_for("auth.signup"))
-
-
+    
     return render_template("auth/signup.html")
 
 

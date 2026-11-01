@@ -1,49 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MERI-Signup</title>
-    <link rel="stylesheet" href="/app/static/css/style.css">
-    <link rel="stylesheet" href="/app/static/css/auth/signup.css">
+    <title>MERI - Signup</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/auth/signup.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
 </head>
 <body>
     <div id="container">
         <div class="logo-container">
             <span>MERI</span>
         </div>
-        <form action="" id="signupForm">
+        <form action="{{ url_for('auth.signup') }}"
+              method="POST"
+              id="signupForm">
+
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
             <h1 class="signup-h1">SIGN UP</h1>
+
+            {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    <p class="error-message">{{ message }}</p>
+                {% endfor %}
+            {% endwith %}
+
             <div class="name-container">
                 <div class="name-input-container">
                     <p>First name</p>
-                    <input type="text" placeholder="First name">
+                    <input type="text" name="first_name" placeholder="First name" maxlength="50" autocomplete="given-name" required>
                 </div>
+
                 <div class="name-input-container">
-                    <p>Second name</p>
-                    <input type="text" placeholder="Second name">
+                    <p>Last name</p>
+                    <input type="text" name="last_name" placeholder="Last name" maxlength="50" autocomplete="family-name" required >
                 </div>
             </div>
+
             <div class="input-container">
                 <p>Email address</p>
-                <input type="email" placeholder="Input your email">
+                <input type="email" name="email" placeholder="Input your email" maxlength="254" autocomplete="email" required>
             </div>
             <div class="input-container">
                 <p>Password</p>
-                <input type="password" placeholder="Input your password"> 
+                <input type="password" name="password" id="passwordInput" placeholder="Input your password" minlength="8" maxlength="64"
+                    pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,64}"
+                    title="Password must contain uppercase, lowercase, and a number." autocomplete="new-password" required >
             </div>
+
             <div class="input-container">
                 <p>Re-enter Password</p>
-                <input type="password" placeholder="Input your password"> 
+                <input type="password" name="confirm_password" id="confirmPasswordInput" placeholder="Confirm your password" minlength="8" maxlength="64" autocomplete="new-password" required>
             </div>
-            <button class="login-button">SIGN UP</button>
+            <button type="submit" class="login-button">
+                SIGN UP
+            </button>
         </form>
+
         <div class="p-container">
             <p>Already have an account?</p>
-            <p>Sign up!</p>
+            <p>
+                <a class="control-link" href="{{ url_for('main.splash', destination='login') }}">
+                    Login!
+                </a>
+            </p>
         </div>
-
     </div>
-    
 </body>
 </html>
