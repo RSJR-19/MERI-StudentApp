@@ -17,8 +17,14 @@
 .hamburger-container{
     height: 10%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5%;
+}
 
-
+#hamburgerBtn{
+    color: var(--dark);
 }
 
 .content-body{
@@ -36,13 +42,37 @@
     height: 10%;
     width: 100%;
     background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--tertiary);
 }
+
+.navbar span{
+    font-size: 2rem;
+    color: var(--tertiary);
+}
+
+
 
 .greeting-container{
     height: 20%;
     width: 90%;
     background-color: var(--primary);
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5%;
+    justify-content: center;
+    gap: 5%;
+    font-family: "Black Han Sans", sans-serif;
+    color: var(--tertiary);
+    font-size: 1.2rem;
+}
+
+.greeting-container p:nth-child(2){
+    font-size: 1.5rem;
+    font-family: sans-serif;
 }
 
 .day-container{
@@ -51,8 +81,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    color: var(--dark);
+    font-size: 1.2rem;
 }
+
+.day-container p:nth-child(1){
+    font-size: 2rem;
+    font-family: 'Black Han Sans', sans-serif;
+}
+
 
 .main-content{
     width: 90%;
@@ -63,6 +100,7 @@
     flex-direction: column;
     align-items: center;
     gap: 2.5%;
+    padding: 2.5% 0;
 }
 
 .quote-container{
@@ -70,6 +108,11 @@
     width: 95%;
     background-color: var(--low-primary);
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--dark);
 }
 
 .function-container{
@@ -83,4 +126,38 @@
 
 .function-container button{
     border-radius: 5px;
+    background-color: var(--background);
+    border: 2px solid rgb(192, 190, 190);
+    display: flex;
+    flex-direction: column;
+    align-items:  flex-start;
+    padding: 5%;
+    justify-content: space-between;
+    gap: 2.5%;
+    flex-shrink: 0;
+    box-shadow: var(--boxShadow);
+}
+
+#moneyIcon{
+    font-size: 2rem;
+    color: var(--dark);
+}
+
+.function-details{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.function-title{
+    color: var(--dark);
+    font-size: 1.2rem;
+    font-weight: 550;
+}
+
+.function-description{
+    font-size: 0.8rem;
+    color: gray;
 }

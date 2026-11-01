@@ -7,30 +7,63 @@
     <link rel="stylesheet" href="/app/static/css/style.css">
     <link rel="stylesheet" href="/app/static/css/dashboard/dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 </head>
 <body>
     <div id="container">
-        <div class="hamburger-container"></div>
+        <div class="hamburger-container">
+            <span class="material-symbols-outlined" id="hamburgerBtn">menu</span>
+        </div>
         <div class="content-body">
-            <div class="greeting-container"></div>
+            <div class="greeting-container">
+                <p>How's your day going?</p>
+                <p>Name</p>
+            </div>
             <div class="main-content">
                 <div class="day-container">
-                <h1>Nov 1</h1>
+                <p>Nov 1</p>
                 <p>Sunday</p>
                 </div>
                 <div class="quote-container">
+                    <p>Do your best and God will do the rest</p>
 
                 </div>
                 <div class="function-container">
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>4</button>
+                    <button>
+                        <span class="material-symbols-outlined" id="moneyIcon">payments</span>
+                        <div class="function-details">
+                            <p class="function-title">Budget Tracker</p>
+                            <p class="function-description">Manage your expenses</p>
+                        </div>
+                    </button>
+                    <button>
+                        <span class="material-symbols-outlined" id="moneyIcon">schedule</span>
+                        <div class="function-details">
+                            <p class="function-title">Schedule</p>
+                            <p class="function-description">Stay on schedule</p>
+                        </div>
+                    </button><button>
+                        <span class="material-symbols-outlined" id="moneyIcon">checklist</span>
+                        <div class="function-details">
+                            <p class="function-title">To-do List</p>
+                            <p class="function-description">Get things done</p>
+                        </div>
+                    </button><button>
+                        <span class="material-symbols-outlined" id="moneyIcon">newsstand</span>
+                        <div class="function-details">
+                            <p class="function-title">Reviewer</p>
+                            <p class="function-description">Learn and review</p>
+                        </div>
+                    </button>
                 </div>
 
             </div>
         </div>
-        <nav class="navbar"></nav>
+        <nav class="navbar">
+            <span class="material-symbols-outlined">home</span>
+        </nav>
     </div>
     
 </body>

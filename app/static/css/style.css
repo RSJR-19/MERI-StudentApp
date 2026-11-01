@@ -5,6 +5,8 @@
     --background: #F8F7F2;
     --dark: #252638;
     --low-primary: #3562e979;
+    --muted-dark:red;
+    --boxShadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 
