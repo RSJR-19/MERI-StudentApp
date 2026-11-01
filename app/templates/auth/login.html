@@ -1,40 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MERI-Login</title>
-    <link rel="stylesheet" href="/app/static/css/style.css">
-    <link rel="stylesheet" href="/app/static/css/auth/login.css">
+    <title>MERI - Login</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/auth/login.css') }}">
+
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
 </head>
+
 <body>
     <div id="container">
         <div class="logo-container">
             <span>MERI</span>
         </div>
-        <form action="" id="loginForm">
+        <form action="{{ url_for('auth.login') }}"
+              method="POST"
+              id="loginForm">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <h1 class="login-h1">LOGIN</h1>
+
+            {% with messages = get_flashed_messages() %}
+
+                {% for message in messages %}
+                    <p class="error-message">{{ message }}</p>
+                {% endfor %}
+            {% endwith %}
+
             <div class="input-container">
                 <p>Email address</p>
-                <input type="email" placeholder="Input your email">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Input your email"
+                    maxlength="254"
+                    autocomplete="email"
+                    required
+                >
             </div>
             <div class="input-container">
                 <p>Password</p>
-                <input type="password" placeholder="Input your password">
-                <div class="forgot-password"><p>Forgot password?</p></div>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Input your password"
+                    maxlength="64"
+                    autocomplete="current-password"
+                    required
+                >
+                <div class="forgot-password">
+                    <p>Forgot password?</p>
+                </div>
             </div>
+
             <div class="check-box">
-                <input type="checkbox">
+                <input
+                    type="checkbox"
+                    name="remember"
+                    value="yes"
+                >
                 <p>Keep me logged in</p>
             </div>
-            <button class="login-button">LOGIN</button>
+            <button type="submit" class="login-button">
+                LOGIN
+            </button>
         </form>
+
         <div class="p-container">
             <p>Don't have an account yet?</p>
-            <p>Sign up!</p>
+            <p>
+                <a href="{{ url_for('main.splash', destination='signup') }}">
+                    Sign up!
+                </a>
+            </p>
         </div>
-
     </div>
-    
 </body>
+
 </html>

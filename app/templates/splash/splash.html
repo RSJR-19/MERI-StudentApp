@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MERI</title>
-    <link rel="stylesheet" href="/app/static/css/splash/splash.css">
-    <link rel="stylesheet" href="/app/static/css/style.css">
+    <meta http-equiv="refresh"
+          content="2;url={{ url_for('auth.' ~ destination) }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/splash/splash.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
     <div id="container">
         <h1>MERI</h1>
         <div class="spinner"></div>
-        
-
     </div>
-    
 </body>
 </html>
