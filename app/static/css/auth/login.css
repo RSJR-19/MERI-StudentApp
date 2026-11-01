@@ -23,7 +23,7 @@
 
 .logo-container span{
     font-size: 6rem;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Black Han Sans", sans-serif;
     font-weight: 800;
     color: var(--primary);
 
@@ -74,7 +74,8 @@
 }
 
 .login-h1{
-    font-weight: 900;
+    font-weight: 600;
+    font-family: "Black Han Sans", sans-serif;
     color: var(--tertiary);
 }
 

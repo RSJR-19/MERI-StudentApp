@@ -8,7 +8,7 @@ auth = Blueprint("auth", __name__)
 def login():
 
     if "user_id" in session:
-        return redirect(url_for("main.dashboard"))
+        return redirect(url_for("main.splash", destination="dashboard"))
 
 
     if request.method == "POST":
@@ -32,7 +32,7 @@ def login():
                 session.permanent = True
 
 
-            return redirect(url_for("main.dashboard"))
+            return redirect(url_for("main.splash", destination="dashboard"))
 
         flash("Invalid email or password.")
         return redirect(url_for("auth.login"))
@@ -44,7 +44,7 @@ def login():
 def signup():
 
     if "user_id" in session:
-        return redirect(url_for("main.dashboard"))
+        return redirect(url_for("main.splash", destination="dashboard"))
 
 
     if request.method == "POST":
@@ -71,7 +71,7 @@ def signup():
             session["user_id"] = user["id"]
             session["first_name"] = user["first_name"]
 
-            return redirect(url_for("main.dashboard"))
+            return redirect(url_for("main.splash", destination="dashboard"))
 
         flash(message)
 
