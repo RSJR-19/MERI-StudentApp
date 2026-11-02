@@ -1,16 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MERI-Dashboard</title>
-    <link rel="stylesheet" href="/app/static/css/style.css">
-    <link rel="stylesheet" href="/app/static/css/dashboard/dashboard.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard/dashboard.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 </head>
+
 <body>
     <div id="container">
         <div class="hamburger-container">
@@ -19,67 +19,68 @@
         <div class="content-body">
             <div class="greeting-container">
                 <p>How's your day going?</p>
-                <p>Name</p>
+                <p>{{ first_name }}</p>
             </div>
             <div class="main-content">
                 <div class="day-container">
-                <p id="currentDate">Nov 1</p>
-                <p id="currentDay">Sunday</p>
+                    <p id="currentDate"></p>
+                    <p id="currentDay"></p>
                 </div>
                 <div class="quote-container">
                     <p>Do your best and God will do the rest</p>
-
                 </div>
                 <div class="function-container">
-                    <button>
-                        <span class="material-symbols-outlined" id="moneyIcon">payments</span>
+                    <button type="button">
+                        <span class="material-symbols-outlined function-icon">payments</span>
                         <div class="function-details">
                             <p class="function-title">Budget Tracker</p>
                             <p class="function-description">Manage your expenses</p>
                         </div>
                     </button>
-                    <button>
-                        <span class="material-symbols-outlined" id="moneyIcon">schedule</span>
+                    <button type="button">
+                        <span class="material-symbols-outlined function-icon">schedule</span>
                         <div class="function-details">
                             <p class="function-title">Schedule</p>
                             <p class="function-description">Stay on schedule</p>
                         </div>
-                    </button><button>
-                        <span class="material-symbols-outlined" id="moneyIcon">checklist</span>
+                    </button>
+                    <button type="button">
+                        <span class="material-symbols-outlined function-icon">checklist</span>
                         <div class="function-details">
                             <p class="function-title">To-do List</p>
                             <p class="function-description">Get things done</p>
                         </div>
-                    </button><button>
-                        <span class="material-symbols-outlined" id="moneyIcon">newsstand</span>
+                    </button>
+                    <button type="button">
+                        <span class="material-symbols-outlined function-icon">newsstand</span>
                         <div class="function-details">
                             <p class="function-title">Reviewer</p>
                             <p class="function-description">Learn and review</p>
                         </div>
                     </button>
                 </div>
-
             </div>
         </div>
         <nav class="navbar">
             <span class="material-symbols-outlined">home</span>
         </nav>
+
         <div id="overlayScreen">
             <div id="sideBarContainer">
                 <div class="control-container">
-                    <button id="backBtn">
+                    <button type="button" id="backBtn">
                         <span class="material-symbols-outlined">arrow_back</span>
                     </button>
                 </div>
                 <div class="main-sidebar">
                     <div class="name-container">
                         <div class="profile">
-                            <p>RS</p>
+                            <p>{{ initials }}</p>
                         </div>
-                        <p>Renan Sumbad</p>
+                        <p>{{ full_name }}</p>
                     </div>
                     <div class="inner-container">
-                        <button id="weeklyReportBtn">
+                        <button type="button" id="weeklyReportBtn">
                             <div class="weekly-logo">
                                 <span class="material-symbols-outlined">calendar_today</span>
                             </div>
@@ -90,8 +91,9 @@
                         </button>
                     </div>
                 </div>
+
                 <div class="logout-container">
-                    <button id="logoutBtn">
+                    <button type="button" id="logoutBtn">
                         <span class="material-symbols-outlined">logout</span>
                         <p>LOG OUT</p>
                     </button>
@@ -100,12 +102,19 @@
         </div>
         <div id="logoutConfirmOverlay">
             <div id="logoutConfirm">
-                <p class="logout-p">Are you sure to log out?</p>
-                <button id="notYetBtn">Not Yet!</button>
-                <button id="yesSirBtn">Yes Sir!</button>
+                <p class="logout-p">Are you sure you want to log out?</p>
+                <button type="button" id="notYetBtn">
+                    Not Yet!
+                </button>
+                <button type="button" id="yesSirBtn">
+                    Yes Sir!
+                </button>
             </div>
         </div>
+        <form id="logoutForm" action="{{ url_for('auth.logout') }}" method="POST" hidden>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        </form>
     </div>
-    <script src="/app/static/js/main.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
 </body>
 </html>

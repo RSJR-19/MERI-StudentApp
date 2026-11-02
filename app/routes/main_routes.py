@@ -24,8 +24,13 @@ def splash(destination):
 
 @main.route("/dashboard")
 def dashboard():
-
     if "user_id" not in session:
         return redirect(url_for("main.splash", destination="login"))
 
-    return render_template("dashboard/dashboard.html",first_name=session["first_name"])
+    first_name = session.get("first_name", "")
+    last_name = session.get("last_name", "")
+
+    full_name = f"{first_name} {last_name}"
+    initials = f"{first_name[:1]}{last_name[:1]}".upper()
+
+    return render_template("dashboard/dashboard.html",first_name=first_name, full_name=full_name, initials=initials)

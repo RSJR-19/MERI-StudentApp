@@ -76,7 +76,7 @@
 .login-h1{
     font-weight: 600;
     font-family: "Black Han Sans", sans-serif;
-    color: var(--tertiary);
+    color: var(--background);
 }
 
 .p-container{
@@ -116,7 +116,8 @@
     border: 2px solid var(--secondary);
     background-color: var(--secondary);
     font-weight: bold;
-    color: var(--tertiary);
+    color: var(--background);
+    
 }
 
 .error-message {

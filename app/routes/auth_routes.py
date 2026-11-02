@@ -26,6 +26,7 @@ def login():
             session.clear()
             session["user_id"] = user["id"]
             session["first_name"] = user["first_name"]
+            session["last_name"] = user["last_name"]
 
 
             if request.form.get("remember") == "yes":
@@ -70,17 +71,17 @@ def signup():
             session.clear()
             session["user_id"] = user["id"]
             session["first_name"] = user["first_name"]
+            session["last_name"] = user["last_name"]
 
             return redirect(url_for("main.splash", destination="dashboard"))
 
         flash(message)
-
         return redirect(url_for("auth.signup"))
     
     return render_template("auth/signup.html")
 
 
-@auth.route("/logout")
+@auth.route("/logout", methods=["POST"])
 def logout():
     session.clear()
 

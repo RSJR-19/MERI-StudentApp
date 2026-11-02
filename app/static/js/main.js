@@ -57,8 +57,8 @@ backBtn.addEventListener('click', ()=>{
         overlayScreeen.classList.remove("reveal");
         setTimeout(()=>{
             overlayScreeen.style.display = "none";
-        }, 500)
-    }, 300);
+        }, 300)
+    }, 200);
 });
 
 logoutBtn.addEventListener('click', ()=>{
@@ -79,3 +79,7 @@ notYetBtn.addEventListener('click', ()=>{
         logoutConfirmOverlay.style.display = "none";
     }, 300)
 })});
+
+yesSirBtn.addEventListener('click', () => {
+    document.getElementById("logoutForm").requestSubmit();
+});
