@@ -11,7 +11,7 @@
     background-color: var(--background);
     border-radius: 15px;
     padding: 0%;
-    
+    position: relative;
 }
 
 .hamburger-container{
@@ -161,3 +161,221 @@
     font-size: 0.8rem;
     color: gray;
 }
+
+#overlayScreen{
+    height: 100dvh;
+    position: absolute;
+    background-color: #252638b2;
+    width: 100%;
+    inset: 0;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+#overlayScreen.reveal{
+    opacity: 1;
+}
+
+#sideBarContainer{
+    height: 100%;
+    width: 70%;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: all 0.2s ease-in-out;
+}
+
+#sideBarContainer.show{
+    transform: translateX(0);
+}
+
+.control-container{
+    height: 10%;
+    width: 100%;
+    padding: 5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#backBtn{
+    display: flex;
+    background: none;
+    border: none;
+    color: var(--dark);
+    transform: scale(1.2);
+
+}
+
+.main-sidebar{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.inner-container{
+    height: 80%;
+    width: 90%;
+    background-color: var(--low-primary);
+    border-radius: 10px;
+    padding: 5% 2.5%;
+    justify-content: flex-start;
+}
+
+#weeklyReportBtn{
+    display: flex;
+    width: 100%;
+    background: none;
+    border: none;
+
+}
+
+.weekly-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    color: var(--dark);
+}
+
+.weekly-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5%;
+    gap: 5%;
+}
+
+.weekly-details p:nth-child(2){
+    font-size: 0.7rem;
+}
+
+.weekly-details p:nth-child(1){
+    font-family: sans-serif;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 1.2rem;
+}
+
+.name-container{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    padding: 5%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+}
+
+.name-container p:nth-child(2){
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.profile{
+    height: 70%;
+    background-color: var(--primary);
+    aspect-ratio: 1/1;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--tertiary);
+    font-family: sans-serif;
+    font-size: 1.3rem;
+}
+
+.logout-container{
+    background-color: var(--primary);
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logoutBtn{
+    display: flex;
+    background: none;
+    border: none;
+    color: var(--tertiary);
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+#logoutConfirmOverlay{
+    height: 100dvh;
+    width: 100%;
+    inset: 0;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    position: absolute;
+    background-color: #252638b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+#logoutConfirmOverlay.reveal{
+    opacity: 1;
+}
+
+#logoutConfirm{
+    height: 25%;
+    width: 80%;
+    border-radius: 10px;
+    background-color: var(--secondary);
+    box-shadow: var(--boxShadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5%;
+    transform: scale(0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+#logoutConfirm.show{
+    transform: scale(1);
+}
+
+.logout-p{
+    margin: 5px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+#logoutConfirm button{
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    box-shadow: var(--boxShadow);
+}
+
+#logoutConfirm button:nth-child(2){
+    color: var(--dark);
+}
+
+#logoutConfirm button:nth-child(3){
+    background-color: var(--low-secondary);
+    color: var(--dark)
+}
+
+

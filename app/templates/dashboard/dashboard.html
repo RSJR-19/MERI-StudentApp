@@ -64,6 +64,47 @@
         <nav class="navbar">
             <span class="material-symbols-outlined">home</span>
         </nav>
+        <div id="overlayScreen">
+            <div id="sideBarContainer">
+                <div class="control-container">
+                    <button id="backBtn">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                </div>
+                <div class="main-sidebar">
+                    <div class="name-container">
+                        <div class="profile">
+                            <p>RS</p>
+                        </div>
+                        <p>Renan Sumbad</p>
+                    </div>
+                    <div class="inner-container">
+                        <button id="weeklyReportBtn">
+                            <div class="weekly-logo">
+                                <span class="material-symbols-outlined">calendar_today</span>
+                            </div>
+                            <div class="weekly-details">
+                                <p>Weekly Report</p>
+                                <p>See how well you did</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="logout-container">
+                    <button id="logoutBtn">
+                        <span class="material-symbols-outlined">logout</span>
+                        <p>LOG OUT</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="logoutConfirmOverlay">
+            <div id="logoutConfirm">
+                <p class="logout-p">Are you sure to log out?</p>
+                <button id="notYetBtn">Not Yet!</button>
+                <button id="yesSirBtn">Yes Sir!</button>
+            </div>
+        </div>
     </div>
     <script src="/app/static/js/main.js"></script>
 </body>
