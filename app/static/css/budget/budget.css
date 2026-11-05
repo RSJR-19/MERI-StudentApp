@@ -54,10 +54,75 @@
     font-family: "Black Han Sans", sans-serif;
     font-size: 1.2rem;
     gap: 5%;
+    display: none;
+    position: relative;
 }
 
+
+#withBudgetStateHeader{
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary);
+    padding: 5%;
+    color: var(--background);
+    font-weight: 600;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#updateBudgetBtn{
+    position: absolute;
+    height: 30%;
+    aspect-ratio: 1/1;
+    border-radius: 50px;
+    top: 0;
+    right: 0;
+    border: none;
+    margin: 2.5%;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--background);
+    box-shadow: var(--insetBoxShadow);
+}
+
+
+#budgetLeft{
+    font-size: 2.5rem;
+    margin: 5px 0;
+}
+
+.progress-bar{
+    height: 10%;
+    width: 100%;
+    background-color: var(--tertiary);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+#progress{
+    width: 50%;
+    height: 100%;
+    background-color: var(--secondary);
+}
 #addBudgetState span{
     transform: scale(1.3);
+}
+
+.budget-div{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.budget-div p{
+    font-weight: normal;
+    font-size: 0.8rem;
+
 }
 
 .content-container{
@@ -65,6 +130,7 @@
     width: 90%;
     background-color: var(--tertiary);
     border-radius: 10px;
+    overflow: hidden;
 }
 
 #emptyBudgetState{
@@ -78,11 +144,97 @@
     color: var(--dark);
     gap: 10%;
     flex-direction: column;
+    display: none;
+}
+
+#withBudgetStateMain{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background-color: var(--tertiary);
+    padding: 5%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5%;
+}
+
+.expense-item-container{
+    height: 90%;
+    width: 100%;
+}
+
+.expense-item {
+    width: 100%;
+    height: 20%;
+    box-sizing: border-box;
+    background-color: var(--background);
+    border-radius: 8px;
+    box-shadow: var(--boxShadow);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.expense-group {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.expense-item-title {
+    flex: 1;
+    min-width: 0;
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.expense-price {
+    flex-shrink: 0;
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.expense-details {
+    color: gray;
+    font-size: 0.8rem;
+    line-height: 1.3;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+}
+
+#addExpenseBtn{
+    width: 100%;
+    padding: 15px;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--insetBoxShadow);
+    color: var(--background);
 }
 
 #emptyBudgetState span{
     transform: scale(4);
 }
+
+
 
 #navBar{
     height: 10%;
@@ -103,4 +255,19 @@
 
 #budgetBtn{
     color: var(--secondary);
+}
+
+#blurOverlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #252638b2;
+    width: 100%;
+    inset: 0;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: flex-end;
+    opacity: 1;
+    display: none;
 }

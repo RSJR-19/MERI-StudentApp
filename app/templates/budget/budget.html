@@ -18,11 +18,38 @@
                     <p>ADD BUDGET TODAY</p>
                     <span class="material-symbols-outlined">add_2</span>
                 </button>
+                <div id="withBudgetStateHeader">
+                    <p class="title-header">AVAILABLE BUDGET</p>
+                    <p id="budgetLeft">₱200.00</p>
+                    <div class="progress-bar">
+                        <div id="progress"></div>
+                    </div>
+                    <div class="budget-div">
+                        <p>₱200 spent</p>
+                        <p>₱400 total</p>
+                    </div>
+                    <button id="updateBudgetBtn">
+                        <span class="material-symbols-outlined">add_2</span>
+                    </button>
+                </div>
             </div>
             <div class="content-container">
                 <div id="emptyBudgetState">
                     <p>SET BUDGET FIRST</p>
                      <span class="material-symbols-outlined">error</span>   
+                </div>
+                <div id="withBudgetStateMain">
+                    <div class="expense-item-container">
+                    <div class="expense-item">
+                        <div class="expense-group">
+                            <p class="expense-item-title">Food Ni Mimi at ni Ate Carly - MAMA</p>
+                            <p class="expense-price">₱20.00</p>
+                        </div>
+                        <p class="expense-details">pagkain para sa masumngit na posa</p>
+                    </div>
+                    </div>
+                    <button id="addExpenseBtn">+ Log Expense</button>
+
                 </div>
             </div>
         </div>
@@ -33,6 +60,7 @@
             <span class="material-symbols-outlined function-icon" id="toDoBtn">checklist</span>
             <span class="material-symbols-outlined function-icon" id="reviewBtn">newsstand</span>
         </div>
+        <div id="blurOverlay"></div>
 
     </div>
     
