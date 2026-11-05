@@ -48,7 +48,7 @@
                         <p class="expense-details">pagkain para sa masumngit na posa</p>
                     </div>
                     </div>
-                    <button id="addExpenseBtn">+ Log Expense</button>
+                    <button id="addExpenseBtn" class="budget-btn">+ Log Expense</button>
 
                 </div>
             </div>
@@ -60,7 +60,62 @@
             <span class="material-symbols-outlined function-icon" id="toDoBtn">checklist</span>
             <span class="material-symbols-outlined function-icon" id="reviewBtn">newsstand</span>
         </div>
-        <div id="blurOverlay"></div>
+        <div id="blurOverlay">
+            <div id="addExpenseScreen">
+                <div class="popup-container">
+                <p class="popup-title">LOG EXPENSE</p>
+                <div>
+                <p class="popup-label">Expense Title</p>
+                <input type="text">
+                </div>
+
+                <div>
+                <p class="popup-label">Expense Price</p>
+                <input type="number">
+                </div>
+
+                <div>
+                    <p class="popup-label">Expense Details</p>
+                <textarea name="" id="" ></textarea>
+                </div>
+            </div>
+            <button class="budget-primary-btn">Add Expense</button>
+            <button class="budget-secondary-btn">Cancel</button>
+            </div>
+            <div id="updateExpenseScreen">
+                <div class="popup-container">
+                <p class="popup-title">EDIT EXPENSE</p>
+                <div>
+                <p class="popup-label">Expense Title</p>
+                <input type="text">
+                </div>
+
+                <div>
+                <p class="popup-label">Expense Price</p>
+                <input type="number">
+                </div>
+
+                <div>
+                    <p class="popup-label">Expense Details</p>
+                <textarea name="" id="" ></textarea>
+                </div>
+            </div>
+            <button class="budget-primary-btn">Save Changes</button>
+            <button class="budget-secondary-btn">Delete Expense</button>
+            </div>
+            <div id="updateBudgetScreen">
+                <div class="popup-container" id="updateContainer">
+                <p class="popup-title" id="updateTitle">UPDATE BUDGET</p>
+                <div id="budgetInput">
+                <p class="popup-label" >Budget</p>
+                <input type="number">
+                </div>
+
+            </div>
+            <button class="budget-primary-btn">Update Budget</button>
+            <button class="budget-secondary-btn">Delete Expense</button>
+            </div>
+        </div>
 
     </div>
     
