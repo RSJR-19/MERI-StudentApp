@@ -25,12 +25,18 @@ window.addEventListener("DOMContentLoaded", () => {
     const notYetBtn = document.getElementById("notYetBtn");
     const yesSirBtn = document.getElementById("yesSirBtn");
 
+    const homeBtn = document.getElementById("homeBtn");
+
     let selectedExpenseId = null;
 
     let budgetMode = "create";
 
     blurOverlay.style.display = "none";
     deleteBlurOverlay.style.display = "none";
+
+    homeBtn.addEventListener('click', ()=>{
+        window.location.href = "/splash/dashboard";
+    });
 
     const screens = [
         addExpenseScreen,

@@ -88,6 +88,7 @@ window.addEventListener('load', ()=>{
     const budgetBtn = document.getElementById("budgetBtn");
 
     budgetBtn.addEventListener("click", () => {
-        window.location.href = "/budget";
-    })
+        window.location.href = "/splash/budget";
+    });
+
 })

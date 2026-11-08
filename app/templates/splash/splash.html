@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MERI</title>
-    <meta http-equiv="refresh" content="1.5;url={{ url_for('main.dashboard' if destination == 'dashboard' else 'auth.' ~ destination) }}">
+    <meta http-equiv="refresh" content="1;url={{ url_for('main.dashboard') if destination == 'dashboard' else url_for('budget.budget_page') if destination == 'budget' else url_for('auth.login') if destination == 'login' else url_for('auth.signup') }}">
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/splash/splash.css') }}">
     <link rel="stylesheet"

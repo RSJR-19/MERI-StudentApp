@@ -11,10 +11,10 @@ def index():
 
 @main.route("/splash/<destination>")
 def splash(destination):
-    if destination not in ["login", "signup", "dashboard"]:
+    if destination not in ["login", "signup", "dashboard", "budget"]:
         return redirect(url_for("main.splash", destination="login"))
 
-    if destination == "dashboard" and "user_id" not in session:
+    if destination == ["dashboard", "budget"] and "user_id" not in session:
         return redirect(url_for("main.splash", destination="login"))
 
     if destination in ["login", "signup"] and "user_id" in session:
