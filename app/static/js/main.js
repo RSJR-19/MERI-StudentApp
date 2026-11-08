@@ -83,3 +83,11 @@ notYetBtn.addEventListener('click', ()=>{
 yesSirBtn.addEventListener('click', () => {
     document.getElementById("logoutForm").requestSubmit();
 });
+
+window.addEventListener('load', ()=>{
+    const budgetBtn = document.getElementById("budgetBtn");
+
+    budgetBtn.addEventListener("click", () => {
+        window.location.href = "/budget";
+    })
+})

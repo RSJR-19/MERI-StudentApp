@@ -44,6 +44,17 @@ def update_daily_budget(user_id, budget_id, amount):
 
     try:
         cursor.execute("""
+            SELECT id
+            FROM daily_budgets
+            WHERE id = %s
+              AND user_id = %s
+              AND budget_date = CURDATE()
+        """, (budget_id, user_id))
+
+        if not cursor.fetchone():
+            return False
+
+        cursor.execute("""
             UPDATE daily_budgets
             SET budget_amount = %s
             WHERE id = %s AND user_id = %s
@@ -51,8 +62,11 @@ def update_daily_budget(user_id, budget_id, amount):
         """, (amount, budget_id, user_id))
 
         connection.commit()
-        return cursor.rowcount > 0
-
+        return True
+    
+    except Exception:
+        connection.rollback()
+        raise
     finally:
         cursor.close()
         connection.close()
@@ -106,6 +120,21 @@ def update_expense(user_id, expense_id, title, amount, details):
 
     try:
         cursor.execute("""
+            SELECT e.id
+            FROM expenses e
+            INNER JOIN daily_budgets b ON e.budget_id = b.id
+            WHERE e.id = %s
+              AND b.user_id = %s
+              AND b.budget_date = CURDATE()
+            LIMIT 1
+        """, (expense_id, user_id))
+
+        expense = cursor.fetchone()
+
+        if not expense:
+            return False
+
+        cursor.execute("""
             UPDATE expenses e
             INNER JOIN daily_budgets b ON e.budget_id = b.id
             SET e.title = %s,
@@ -117,7 +146,12 @@ def update_expense(user_id, expense_id, title, amount, details):
         """, (title, amount, details, expense_id, user_id))
 
         connection.commit()
-        return cursor.rowcount > 0
+        return True
+
+    except Exception:
+        connection.rollback()
+        raise
+
     finally:
         cursor.close()
         connection.close()
