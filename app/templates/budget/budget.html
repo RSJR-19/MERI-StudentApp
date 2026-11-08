@@ -54,25 +54,33 @@
                 {% else %}
                 <div id="withBudgetStateMain">
                     <div class="expense-item-container">
-                        {% for expense in expenses %}
-                            <div class="expense-item"
-                                    data-id="{{ expense.id }}"
-                                    data-title="{{ expense.title }}"
-                                    data-amount="{{ expense.amount }}"
-                                    data-details="{{ expense.details or '' }}">
-                                <div class="expense-group">
-                                    <p class="expense-item-title">
-                                        {{ expense.title }}
-                                    </p>
-                                    <p class="expense-price">
-                                        ₱{{ "%.2f"|format(expense.amount) }}
+                        <div class="expense-item-container">
+                        {% if expenses %}
+                            {% for expense in expenses %}
+                                <div class="expense-item"
+                                        data-id="{{ expense.id }}"
+                                        data-title="{{ expense.title }}"
+                                        data-amount="{{ expense.amount }}"
+                                        data-details="{{ expense.details or '' }}">
+                                    <div class="expense-group">
+                                        <p class="expense-item-title">
+                                            {{ expense.title }}
+                                        </p>
+                                        <p class="expense-price">
+                                            ₱{{ "%.2f"|format(expense.amount) }}
+                                        </p>
+                                    </div>
+                                    <p class="expense-details">
+                                        {{ expense.details or '' }}
                                     </p>
                                 </div>
-                                <p class="expense-details">
-                                    {{ expense.details or '' }}
-                                </p>
+                            {% endfor %}
+                        {% else %}
+                            <div id="noExpensesState">
+                                <p>NO EXPENSES YET</p>
                             </div>
-                        {% endfor %}
+                        {% endif %}
+                        </div>
                         </div>
                     <button id="addExpenseBtn" class="budget-btn">
                         + Log Expense
