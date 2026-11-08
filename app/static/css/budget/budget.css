@@ -272,18 +272,21 @@
     -webkit-backdrop-filter: blur(2px);
     display: flex;
     justify-content: flex-end;
-    opacity: 1;
+    opacity: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 1.5%;
+    transition: all 0.3s ease-in-out;
 }
 
+#blurOverlay.reveal{
+    opacity: 1;
+}
 #addExpenseScreen, #updateExpenseScreen, #updateBudgetScreen{
     height: 100%;
     width: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -291,9 +294,7 @@
     display: none;
 }
 
-#updateBudgetScreen{
-    display: flex;
-}
+
 
 #updateContainer{
     height: 20%;
@@ -376,3 +377,60 @@
     color: var(--secondary);
 }
 
+#deleteBlurOverlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 9999;
+    background-color: #252638b2;
+    inset: 0;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#deleteConfirm{
+    height: 25%;
+    width: 80%;
+    border-radius: 10px;
+    background-color: var(--secondary);
+    box-shadow: var(--boxShadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5%;
+    transform: scale(0.1);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+#deleteConfirm.show{
+    transform: scale(1);
+}
+
+.delete-p{
+    margin: 5px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+#deleteConfirm button{
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    box-shadow: var(--boxShadow);
+}
+
+#deleteConfirm button:nth-child(2){
+    color: var(--dark);
+}
+
+#deleteConfirm button:nth-child(3){
+    background-color: var(--low-secondary);
+    color: var(--dark)
+}

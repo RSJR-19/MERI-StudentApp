@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/app/static/css/budget/budget.css">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     <div id="container">
@@ -42,7 +43,7 @@
                     <div class="expense-item-container">
                     <div class="expense-item">
                         <div class="expense-group">
-                            <p class="expense-item-title">Food Ni Mimi at ni Ate Carly - MAMA</p>
+                            <p class="expense-item-title" >Food Ni Mimi at ni Ate Carly - MAMA</p>
                             <p class="expense-price">₱20.00</p>
                         </div>
                         <p class="expense-details">pagkain para sa masumngit na posa</p>
@@ -79,8 +80,8 @@
                 <textarea name="" id="" ></textarea>
                 </div>
             </div>
-            <button class="budget-primary-btn">Add Expense</button>
-            <button class="budget-secondary-btn">Cancel</button>
+            <button class="budget-primary-btn" id="addExpenseConfirm">Add Expense</button>
+            <button class="budget-secondary-btn"  id="cancelBtnAdd">Cancel</button>
             </div>
             <div id="updateExpenseScreen">
                 <div class="popup-container">
@@ -100,8 +101,8 @@
                 <textarea name="" id="" ></textarea>
                 </div>
             </div>
-            <button class="budget-primary-btn">Save Changes</button>
-            <button class="budget-secondary-btn">Delete Expense</button>
+            <button class="budget-primary-btn" id="saveChangesBtn">Save Changes</button>
+            <button class="budget-secondary-btn" id="deleteExpenseBtn">Delete Expense</button>
             </div>
             <div id="updateBudgetScreen">
                 <div class="popup-container" id="updateContainer">
@@ -113,11 +114,22 @@
 
             </div>
             <button class="budget-primary-btn">Update Budget</button>
-            <button class="budget-secondary-btn">Delete Expense</button>
+            <button class="budget-secondary-btn" id="updateCancel">Cancel</button>
             </div>
         </div>
+        <div id="deleteBlurOverlay">
+            <div id="deleteConfirm">
+                <p class="delete-p">Are you sure you want to delete this expense?</p>
+                <button type="button" id="notYetBtn">
+                    No, keep it!
+                </button>
+                <button type="button" id="yesSirBtn">
+                    Yes, delete it!
+                </button>
+            </div>
 
+        </div>
     </div>
-    
+    <script src="/app/static/js/budget.js"></script>
 </body>
 </html>
