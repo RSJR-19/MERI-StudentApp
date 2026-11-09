@@ -3,8 +3,10 @@ const fileUpload = document.getElementById("fileUpload");
 const confirmBtn = document.getElementById("confirmBtn");
 const cancelBtn = document.getElementById("cancelBtn");
 const privacyAgreement = document.getElementById("privacyAgreement");
+const extractingScreen = document.getElementById("extractingScreen");
 
 blurOverlay.style.display = "none";
+extractingScreen.style.display = "none";
 
 let accepted = false;
 let allowFilePicker = false;
@@ -69,12 +71,29 @@ fileUpload.addEventListener("change", async () => {
 
     try {
         confirmBtn.disabled = true;
+        const csrfToken = document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content");
+
         const response = await fetch("/extract-eaf", {
-            method: "POST",
-            body: formData
+        method: "POST",
+        headers: {
+            "X-CSRFToken": csrfToken
+        },
+        body: formData
         });
 
-        const result = await response.json();
+        const responseText = await response.text();
+
+        let result;
+
+        try {
+        result = JSON.parse(responseText);
+        } catch {
+        console.error("Server returned a non-JSON response:", responseText);
+        throw new Error("The server returned an unexpected response.");
+        }
+        
         if (!response.ok || !result.success) {
             alert(result.message || "Unable to extract EAF.");
             return;
@@ -95,3 +114,4 @@ fileUpload.addEventListener("change", async () => {
         fileUpload.value = "";
     }
 });
+

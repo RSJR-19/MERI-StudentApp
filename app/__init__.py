@@ -20,6 +20,7 @@ def create_app():
 
     app.config["SESSION_COOKIE_HTTPONLY"] = True
     app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+    app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024
 
     csrf.init_app(app)
 

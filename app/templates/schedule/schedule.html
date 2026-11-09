@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/app/static/css/schedule/schedule.css">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     <div id="container">
@@ -122,6 +123,35 @@
             I Understand & Agree
         </button>
         <button id="cancelBtn" class="privacy-button">Cancel</button>
+    </div>
+    <div id="extractingScreen">
+        <p class="extracting-text">EXTRACTING SCHEDULE...</p>
+        <div id="spinner"></div>
+        <div id="conflictPopup">
+            <div class="title-conflict">
+                <p class="conflict-title">SCHEDULE CONFLICT</p>
+            
+            </div>
+            <div class="body-conflict">
+                <p class="conflict-room">Which room is currently used for <strong>Living in IT Era</strong> during <strong>Tuesdays</strong>?</p>
+                <div class="choices-div">
+                    <label for="">
+                    <input type="radio">
+                    C609
+                </label>
+                <label for="">
+                    <input type="radio">
+                    C608
+                </label>
+
+                </div>
+
+            </div>
+            <div class="confirm-conflict" >
+                <button id="confirmRoomBtn">Confirm Room</button>
+            </div>
+        </div>
+
     </div>
     </div>
     

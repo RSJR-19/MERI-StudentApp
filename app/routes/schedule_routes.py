@@ -1,7 +1,10 @@
 import os
 import tempfile
 from flask import Blueprint, request, jsonify, session
-from app.services.eaf_parser import extract_eaf_text
+from app.services.eaf_parser import (
+    extract_eaf_text,
+    parse_eaf_text
+)
 
 schedule = Blueprint("schedule", __name__)
 
@@ -44,6 +47,13 @@ def extract_eaf():
             temp_path = temp_file.name
             pdf.save(temp_path)
 
+        with open(temp_path, "rb") as uploaded_file:
+            if not uploaded_file.read(5).startswith(b"%PDF-"):
+                return jsonify({
+                    "success": False,
+                    "message": "The uploaded file is not a valid PDF."
+                }), 400
+            
         extracted_text = extract_eaf_text(temp_path)
 
         if not extracted_text.strip():
@@ -52,11 +62,19 @@ def extract_eaf():
                 "message": "No readable text found in the PDF."
             }), 422
 
+        schedule_data = parse_eaf_text(extracted_text)
+
         return jsonify({
             "success": True,
-            "message": "PDF text extracted successfully.",
-            "extracted_text": extracted_text
-        })
+            "message": "EAF schedule extracted successfully.",
+            "schedule": schedule_data
+        }), 200
+
+    except ValueError as e:
+        return jsonify({
+            "success": False,
+            "message": str(e)
+        }), 422
 
     except Exception as e:
         print("EAF Extraction Error:", e)
