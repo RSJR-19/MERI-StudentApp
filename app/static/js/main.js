@@ -86,9 +86,14 @@ yesSirBtn.addEventListener('click', () => {
 
 window.addEventListener('load', ()=>{
     const budgetBtn = document.getElementById("budgetBtn");
+    const scheduleBtn = document.getElementById('scheduleBtn');
 
     budgetBtn.addEventListener("click", () => {
         window.location.href = "/splash/budget";
+    });
+
+    scheduleBtn.addEventListener("click", () => {
+        window.location.href = "/splash/schedule";
     });
 
 })

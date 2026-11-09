@@ -1,10 +1,8 @@
 import os
 import tempfile
-from flask import Blueprint, request, jsonify, session
-from app.services.eaf_parser import (
-    extract_eaf_text,
-    parse_eaf_text
-)
+from flask import Blueprint, request, jsonify, session, render_template, redirect, url_for
+from app.services.eaf_parser import extract_eaf_text,parse_eaf_text
+
 
 schedule = Blueprint("schedule", __name__)
 
@@ -87,3 +85,11 @@ def extract_eaf():
     finally:
         if temp_path and os.path.exists(temp_path):
             os.remove(temp_path)
+
+@schedule.route("/schedule")
+def schedule_page():
+
+    if "user_id" not in session:
+        return redirect(url_for("main.splash", destination="login"))
+
+    return render_template("schedule/schedule.html")
