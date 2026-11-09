@@ -32,6 +32,7 @@
     align-items: center;
     flex-direction: column;
     gap: 5%;
+    position: relative;
 }
 
 #noScheduleScreen{
@@ -98,8 +99,100 @@
 }
 
 #blurOverlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #252638b2;
+    inset: 0;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.5%;
+}
+
+#privacyContainer{
+    height: 50%;
+    width: 80%;
+    background-color: var(--background);
+    border-radius: 5px;
+    padding: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.highlights{
+    display: flex;
+    flex-direction: column;
+    background-color: #3562e949;
+    width: 100%;
+    padding: 2.5%;
+    border-radius: 5px;
+    gap: 1%;
+    
     
 }
+
+#privacyContainer div p{
+    text-align: center;
+    font-weight: 600;
+}
+
+#privacyContainer p{
+    font-size: 0.8rem;
+}
+
+#privacyContainer ul{
+    padding-left: 5%;
+}
+
+#privacyContainer li{
+    font-size: 0.8rem;
+    
+}
+
+#privacyContainer li::marker{
+    color: var(--dark);
+}
+
+#title-privacy{
+    font-family: 'Black Han Sans', sans-serif;
+    color: var(--dark);
+    font-size: 1.2rem;
+   letter-spacing: 0.5px;
+}
+
+.understand-text{
+    color: var(--secondary);
+    text-align: justify;
+}
+
+.check-box{
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.check-box input{
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.check-box label{
+    font-size: 0.8rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+
 
 #navBar{
     height: 10%;
@@ -110,7 +203,6 @@
     align-items: center;
     padding: 5%;
     color: var(--background);
-    
 }
 
 #navBar span{
@@ -119,4 +211,23 @@
 
 #scheduleBtn{
     color: var(--secondary);
+}
+
+.privacy-button{
+    width: 80%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    box-shadow: var(--insetBoxShadow);
+}
+
+#confirmBtn{
+    background-color: var(--secondary);
+    color: var(--background);
+}
+
+#cancelBtn{
+    color: var(--dark);
+
 }

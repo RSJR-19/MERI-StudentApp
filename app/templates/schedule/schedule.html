@@ -31,9 +31,44 @@
             <span class="material-symbols-outlined function-icon" id="toDoBtn">checklist</span>
             <span class="material-symbols-outlined function-icon" id="reviewBtn">newsstand</span>
         </div>
+        <div id="blurOverlay">
+        <div id="privacyContainer">
+            <h1 id="title-privacy">YOUR PRIVACY MATTERS!</h1>
+            <p>Before uploading your Enrollment Assessment Form (EAF), please understand how MERI processes your document.</p>
+            
+            <div class="highlights">
+                <p><strong>WHAT WE COLLECT?</strong></p>
+            <ul>
+                <li>Your class names and course codes</li>
+                <li>Class schedules, including days and times</li>
+                <li>Assigned Classrooms</li>
+            </ul>
+            </div>
 
+            <div class="highlights">
+                <p><strong>WHAT HAPPENS TO YOUR<br>UPLOADED DOCUMENT?</strong></p>
+            <ul>
+                <li>Your original EAF will <strong>not be stored permanently</strong></li>
+                <li>Personal and financial information unrelated to your class schedule will not be saved</li>
+            </ul>
+            </div>
+            
+            <p>By proceeding, you authorize MERI to process your uploaded EAF for the purpose described above. </p>
+            <div class="check-box">
+                <input type="checkbox" id="privacyAgreement">
+            <label for="privacyAgreement">
+                I have read and agree to the Privacy Policy.
+            </label>
+            </div>
+            
+        </div>
+        <button id="confirmBtn" class="privacy-button">
+            I Understand & Agree
+        </button>
+        <button id="cancelBtn" class="privacy-button">Cancel</button>
     </div>
-    <div id="blurOverlay"></div>
+    </div>
+    
     <script src="/app/static/js/schedule.js"></script>
 </body>
 </html>
