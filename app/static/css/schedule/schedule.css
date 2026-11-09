@@ -111,6 +111,13 @@
     align-items: center;
     flex-direction: column;
     gap: 2.5%;
+    opacity: 0;
+
+    transition: all 0.5s ease-in-out;
+}
+
+#blurOverlay.reveal{
+    opacity: 1;
 }
 
 #privacyContainer{
@@ -148,7 +155,7 @@
 }
 
 #privacyContainer ul{
-    padding-left: 5%;
+    padding-left: 7.5%;
 }
 
 #privacyContainer li{
@@ -223,8 +230,13 @@
 }
 
 #confirmBtn{
-    background-color: var(--secondary);
+    background-color: gray;
     color: var(--background);
+    transition: all 0.2s ease-in-out;
+}
+
+#confirmBtn.clickable{
+    background-color: var(--secondary);
 }
 
 #cancelBtn{
