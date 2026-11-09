@@ -9,6 +9,8 @@ blurOverlay.style.display = "none";
 let accepted = false;
 
 fileUpload.addEventListener('click', (e)=>{
+    accepted = false;
+    privacyAgreement.checked = false;
     e.preventDefault();
     blurOverlay.style.display = "flex";
     setTimeout(()=>{
@@ -31,6 +33,7 @@ cancelBtn.addEventListener('click', ()=>{
     setTimeout(()=>{
         blurOverlay.style.display = "none";
     }, 500);
+    confirmBtn.classList.remove('clickable');
 });
 
 privacyAgreement.addEventListener('click', ()=>{
