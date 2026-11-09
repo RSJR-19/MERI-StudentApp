@@ -17,11 +17,67 @@
                 <div class="no-schedule-container">
                     <p>NO SCHEDULE YET</p>
                     <div id="scheduleInputBox">
-                        <input type="file" id="fileUpload">
+                        <input type="file" id="fileUpload" accept=".pdf"  name="eaf">
                         <span class="material-symbols-outlined">upload</span>
                         <p id="context">Upload your official LPU Enrollment Assessment Form (EAF)</p>
                     </div>
                 </div>
+            </div>
+            <div id="withScheduleScreen">
+                <div id="dateContainer">
+                    <p>MONDAY</p>
+                </div>
+                <div class="days-container">
+                    <p>SUN</p>
+                    <p class="selected">MON</p>
+                    <p>TUE</p>
+                    <p>WED</p>
+                    <p>THU</p>
+                    <p>FRI</p>
+                    <p>SAT</p>
+                </div>
+                <div class="schedule-container">
+                    <div id="withClassScreen">
+                        <p class="with-title">RIGHT NOW:</p>
+                        <div class="class-container" id="rightNowContainer">
+                            <p class="top">C607</p>
+                            <p class="mid">OBJECT-ORIENTED PROGRAMMING</p>
+                            <p class="bot">04:00PM - 06:30PM</p>
+                        </div>
+                        <p class="with-title">UP NEXT:</p>
+                        <div class="class-container" id="upNextContainer">
+                            <p class="top-next">TAKE A BREAK</p>
+                            <p class="mid">BREAK TIME</p>
+                            <p class="bot">06:30PM - 07:00PM</p>
+                        </div>
+                    </div>
+                    <div id="noClassScreen">
+                        <p>NO CLASSES TODAY!</p>
+                        <span class="material-symbols-outlined">celebration</span>
+                    </div>
+                    <div id="fullSchedScreen">
+                        <p class="with-title" id="fullSchedule">FULL SCHEDULE:</p>
+                        <div class="class-container" id="rightNowContainer">
+                            <p class="top">C607</p>
+                            <p class="mid">OBJECT-ORIENTED PROGRAMMING</p>
+                            <p class="bot">04:00PM - 06:30PM</p>
+                        </div>
+                        <div class="class-container" id="rightNowContainer">
+                            <p class="top">C607</p>
+                            <p class="mid">OBJECT-ORIENTED PROGRAMMING</p>
+                            <p class="bot">04:00PM - 06:30PM</p>
+                        </div>
+                        <div class="class-container" id="rightNowContainer">
+                            <p class="top">C607</p>
+                            <p class="mid">OBJECT-ORIENTED PROGRAMMING</p>
+                            <p class="bot">04:00PM - 06:30PM</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <button id="checkFullSchedBtn">Check Full Schedule</button>
+                <button id="backSchedBtn">Back</button>
             </div>
         </div>
         <div id="navBar">

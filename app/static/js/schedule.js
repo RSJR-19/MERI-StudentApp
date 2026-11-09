@@ -7,42 +7,91 @@ const privacyAgreement = document.getElementById("privacyAgreement");
 blurOverlay.style.display = "none";
 
 let accepted = false;
+let allowFilePicker = false;
 
-fileUpload.addEventListener('click', (e)=>{
-    accepted = false;
-    privacyAgreement.checked = false;
+fileUpload.addEventListener("click", (e) => {
+    if (allowFilePicker) {
+        allowFilePicker = false;
+        return;
+    }
     e.preventDefault();
-    blurOverlay.style.display = "flex";
-    setTimeout(()=>{
-        blurOverlay.classList.add("reveal");
-    }, 100)
 
+    privacyAgreement.checked = false;
+    accepted = false;
+
+    blurOverlay.style.display = "flex";
+    setTimeout(() => {
+        blurOverlay.classList.add("reveal");
+    }, 100);
 });
 
-confirmBtn.addEventListener('click', ()=>{
-    if (!accepted){
+confirmBtn.addEventListener("click", () => {
+    if (!accepted) {
         alert("Please check the privacy agreement checkbox first before proceeding.");
+        return;
     }
-    else if (accepted){
-        alert("done")
-    }
-})
 
-cancelBtn.addEventListener('click', ()=>{
     blurOverlay.classList.remove("reveal");
-    setTimeout(()=>{
+
+    setTimeout(() => {
+        blurOverlay.style.display = "none";
+        allowFilePicker = true;
+        fileUpload.click();
+    }, 500);
+});
+
+cancelBtn.addEventListener("click", () => {
+    blurOverlay.classList.remove("reveal");
+
+    setTimeout(() => {
         blurOverlay.style.display = "none";
     }, 500);
-    confirmBtn.classList.remove('clickable');
+
+    confirmBtn.classList.remove("clickable");
 });
 
-privacyAgreement.addEventListener('click', ()=>{
-    if (!accepted){
-        accepted = true;
-        confirmBtn.classList.add("clickable");
+
+privacyAgreement.addEventListener("change", () => {
+    accepted = privacyAgreement.checked;
+
+    confirmBtn.classList.toggle("clickable", accepted);
+});
+
+fileUpload.addEventListener("change", async () => {
+    const file = fileUpload.files[0];
+
+    if (!file) {
+        return;
     }
-    else{
-        accepted = false;
-        confirmBtn.classList.remove('clickable');
+
+    const formData = new FormData();
+    formData.append("eaf", file);
+
+    try {
+        confirmBtn.disabled = true;
+        const response = await fetch("/extract-eaf", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+        if (!response.ok || !result.success) {
+            alert(result.message || "Unable to extract EAF.");
+            return;
+        }
+
+        console.log("Extracted EAF Text:");
+        console.log(result.extracted_text);
+
+        alert("EAF text extracted successfully!");
+
+    } catch (error) {
+
+        console.error("EAF Upload Error:", error);
+        alert("Something went wrong while processing your EAF.");
+
+    } finally {
+        confirmBtn.disabled = false;
+        fileUpload.value = "";
     }
-})
+});

@@ -4,6 +4,7 @@ from flask_wtf.csrf import CSRFProtect
 from dotenv import load_dotenv
 from datetime import timedelta
 from app.routes.budget_routes import budget
+from app.routes.schedule_routes import schedule
 
 csrf = CSRFProtect()
 
@@ -29,5 +30,6 @@ def create_app():
     app.register_blueprint(main)
     app.register_blueprint(auth)
     app.register_blueprint(budget)
+    app.register_blueprint(schedule)
 
     return app
