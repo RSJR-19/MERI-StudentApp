@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERI - Schedule</title>
+    <link rel="stylesheet" href="/app/static/css/style.css">
+    <link rel="stylesheet" href="/app/static/css/schedule/schedule.css">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+</head>
+<body>
+    <div id="container">
+        <div class="upper-space"></div>
+        <div id="mainContentContainer">
+            <div id="noScheduleScreen">
+                <div class="no-schedule-container">
+                    <p>NO SCHEDULE YET</p>
+                    <div id="scheduleInputBox">
+                        <input type="file" id="fileUpload">
+                        <span class="material-symbols-outlined">upload</span>
+                        <p id="context">Upload your official LPU Enrollment Assessment Form (EAF)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="navBar">
+            <span class="material-symbols-outlined function-icon" id="budgetBtn">payments</span>
+            <span class="material-symbols-outlined function-icon" id="scheduleBtn">schedule</span>
+            <span class="material-symbols-outlined" id="homeBtn">home</span>
+            <span class="material-symbols-outlined function-icon" id="toDoBtn">checklist</span>
+            <span class="material-symbols-outlined function-icon" id="reviewBtn">newsstand</span>
+        </div>
+
+    </div>
+    <div id="blurOverlay"></div>
+    <script src="/app/static/js/schedule.js"></script>
+</body>
+</html>

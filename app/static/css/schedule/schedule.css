@@ -1,0 +1,122 @@
+#container{
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+    max-height: 850px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: var(--background);
+    border-radius: 15px;
+    padding: 0%;
+    position: relative;
+}
+
+.upper-space{
+    height: 5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5%;
+    background-color: green;
+}
+
+#mainContentContainer{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 5%;
+}
+
+#noScheduleScreen{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#scheduleInputBox{
+    width: 80%;
+    height: 25%;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    border: 3px dashed var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.5%;
+    position: relative;
+    box-shadow: var(--insetBoxShadow);
+}
+
+#scheduleInputBox span{
+    font-size: 5rem;
+    color: var(--dark);
+    opacity: 0.7;
+}
+
+.no-schedule-container{
+    height: 90%;
+    width: 85%;
+    background-color: var(--tertiary);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.5%;
+}
+
+.no-schedule-container p{
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 1.5rem;
+    color: var(--dark);
+    
+}
+
+#context{
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    text-align: center;
+    opacity: 0.7;
+}
+
+#fileUpload{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+#blurOverlay{
+    
+}
+
+#navBar{
+    height: 10%;
+    width: 100%;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+    color: var(--background);
+    
+}
+
+#navBar span{
+    font-size: 2rem;
+}
+
+#scheduleBtn{
+    color: var(--secondary);
+}
